@@ -13,7 +13,7 @@ A comprehensive open-source suite for Indian financial market sentiment analysis
 | Package | Description | PyPI | Docs |
 |---------|-------------|------|------|
 | **aion-sentiment** | Sentiment + Emotion analysis for financial headlines | Coming Soon | [Docs](aion-sentiment/README.md) |
-| **aion-sentiment-in** | Training pipeline for FinBERT fine-tuning | Coming Soon | [Docs](aion-sentiment-in/README.md) |
+| **aion-sentiment-in** | Training pipeline for India-tuned model | Coming Soon | [Docs](aion-sentiment-in/README.md) |
 | **aion-sectormap** | NSE ticker → Sector/Industry/Group mapping | Coming Soon | [Docs](aion-sectormap/README.md) |
 | **aion-volweight** | VIX-based sentiment confidence adjustment | Coming Soon | [Docs](aion-volweight/README.md) |
 | **aion-newsimpact** | Historical news impact analysis with FAISS | Coming Soon | [Docs](aion-newsimpact/README.md) |
@@ -138,10 +138,10 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 
 ## 🙏 Acknowledgments
 
-- **FinBERT** (ProsusAI) - Base model for sentiment analysis
-- **NRC Emotion Lexicon** - Emotion analysis dataset
+- **NRC Emotion Lexicon** - Emotion analysis dataset (NRC Canada)
 - **FAISS** (Meta) - Similarity search engine
 - **Sentence Transformers** - Text embeddings
+- **HuggingFace Transformers** - Model infrastructure
 
 ---
 

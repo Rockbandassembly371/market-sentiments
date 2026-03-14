@@ -184,7 +184,7 @@ Transformer-based sentiment classification for financial text.
 from aion_sentiment import SentimentAnalyzer
 
 analyzer = SentimentAnalyzer(
-    model_name="ProsusAI/finbert",  # HuggingFace model
+    model_name="aion-analytics/aion-sentiment-in-v1",  # HuggingFace model
     device=None  # Auto-detect: 'mps', 'cuda', or 'cpu'
 )
 ```
@@ -284,7 +284,7 @@ Main API for DataFrame analysis combining sentiment and emotion detection.
 from aion_sentiment import AIONSentimentAnalyzer
 
 analyzer = AIONSentimentAnalyzer(
-    model_name="ProsusAI/finbert",
+    model_name="aion-analytics/aion-sentiment-in-v1",
     device=None,
     lexicon_path=None
 )
