@@ -30,7 +30,7 @@ A comprehensive open-source suite for Indian financial market sentiment analysis
 | **F1 Score** | 98.65% |
 | **Training Data** | 957K Indian financial news headlines |
 | **Labels** | positive, neutral, negative |
-| **Location** | [HuggingFace](https://huggingface.co/aion-analytics/aion-sentiment-in-v1) |
+| **Location** | [HuggingFace](https://huggingface.co/AION-Analytics/aion-sentiment-in-v1) |
 
 **Note:** The `aion-sentiment` package automatically downloads this model from HuggingFace on first use (~440MB). Subsequent uses load from cache.
 
