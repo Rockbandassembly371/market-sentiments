@@ -10,13 +10,13 @@ A comprehensive open-source suite for Indian financial market sentiment analysis
 
 ## Packages
 
-| Package | Description | PyPI | Docs |
-|---------|-------------|------|------|
-| **aion-sentiment** | Sentiment and emotion analysis for financial headlines | Coming Soon | [Docs](aion-sentiment/README.md) |
-| **aion-sentiment-in** | Training pipeline for India-tuned model (98.55% accuracy) | Coming Soon | [Docs](aion-sentiment-in/README.md) |
-| **aion-sectormap** | NSE ticker to Sector/Industry/Group mapping | Coming Soon | [Docs](aion-sectormap/README.md) |
-| **aion-volweight** | VIX-based sentiment confidence adjustment | Coming Soon | [Docs](aion-volweight/README.md) |
-| **aion-newsimpact** | Historical news impact analysis with FAISS | Coming Soon | [Docs](aion-newsimpact/README.md) |
+| Package | Description | Status | Docs |
+|---------|-------------|--------|------|
+| **aion-sentiment** | Sentiment and emotion analysis for financial headlines | ✅ Ready | [Docs](aion-sentiment/README.md) |
+| **aion-sentiment-in** | Training pipeline for India-tuned model (98.55% accuracy) | ✅ Ready | [Docs](aion-sentiment-in/README.md) |
+| **aion-sectormap** | NSE ticker to Sector/Industry/Group mapping | ✅ Ready | [Docs](aion-sectormap/README.md) |
+| **aion-volweight** | VIX-based sentiment confidence adjustment | ✅ Ready | [Docs](aion-volweight/README.md) |
+| **aion-newsimpact** | Historical news impact analysis with FAISS | ✅ Ready | [Docs](aion-newsimpact/README.md) |
 
 ---
 
