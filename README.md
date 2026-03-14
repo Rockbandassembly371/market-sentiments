@@ -8,19 +8,19 @@ A comprehensive open-source suite for Indian financial market sentiment analysis
 
 ---
 
-## 📦 Packages
+## Packages
 
 | Package | Description | PyPI | Docs |
 |---------|-------------|------|------|
-| **aion-sentiment** | Sentiment + Emotion analysis for financial headlines | Coming Soon | [Docs](aion-sentiment/README.md) |
-| **aion-sentiment-in** | Training pipeline for India-tuned model | Coming Soon | [Docs](aion-sentiment-in/README.md) |
-| **aion-sectormap** | NSE ticker → Sector/Industry/Group mapping | Coming Soon | [Docs](aion-sectormap/README.md) |
+| **aion-sentiment** | Sentiment and emotion analysis for financial headlines | Coming Soon | [Docs](aion-sentiment/README.md) |
+| **aion-sentiment-in** | Training pipeline for India-tuned model (98.55% accuracy) | Coming Soon | [Docs](aion-sentiment-in/README.md) |
+| **aion-sectormap** | NSE ticker to Sector/Industry/Group mapping | Coming Soon | [Docs](aion-sectormap/README.md) |
 | **aion-volweight** | VIX-based sentiment confidence adjustment | Coming Soon | [Docs](aion-volweight/README.md) |
 | **aion-newsimpact** | Historical news impact analysis with FAISS | Coming Soon | [Docs](aion-newsimpact/README.md) |
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Installation
 
@@ -57,7 +57,7 @@ df = pd.DataFrame({
 mapper = SectorMapper()
 df = mapper.map(df, ticker_column='ticker')
 
-# 2. Analyze sentiment
+# 2. Analyze sentiment (uses India-tuned model by default)
 analyzer = AIONSentimentAnalyzer()
 df = analyzer.analyze(df, text_column='headline')
 
@@ -69,13 +69,13 @@ print(df[['ticker', 'sector', 'sentiment_label', 'sentiment_confidence_adjusted'
 
 ---
 
-## 📊 Data Assets
+## Data Assets
 
 - **NSE Sector Constituents**: 188 companies across 14 sectors
 - **NSE Group Companies**: 591 companies, 44 sectors, 340 groups (from GIN database)
 - **NRC Emotion Lexicon**: 14,182 words bundled with aion-sentiment
 
-## 🤖 Models
+## Models
 
 | Model | Description | Accuracy | Location |
 |-------|-------------|----------|----------|
@@ -85,12 +85,12 @@ print(df[['ticker', 'sector', 'sentiment_label', 'sentiment_confidence_adjusted'
 
 ---
 
-## 🔧 Development
+## Development
 
 ```bash
 # Clone repository
-git clone https://github.com/AionAnalytics/aion-open-source.git
-cd aion-open-source
+git clone https://github.com/AION-Analytics/market-sentiments.git
+cd market-sentiments
 
 # Install with dev dependencies
 cd aion-sentiment && pip install -e ".[dev]"
@@ -104,7 +104,7 @@ pytest
 
 ---
 
-## 📋 License
+## License
 
 All packages are licensed under the [Apache License 2.0](LICENSE).
 
@@ -112,12 +112,12 @@ All packages are licensed under the [Apache License 2.0](LICENSE).
 When using these packages in your research or products, please include:
 ```
 This project uses AION Analytics open-source packages.
-Visit https://github.com/AionAnalytics for more information.
+Visit https://github.com/AION-Analytics for more information.
 ```
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
 
@@ -129,14 +129,14 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 
 ---
 
-## 📧 Contact
+## Contact
 
 - **Email**: aionlabs@tutamail.com
-- **GitHub**: [@AionAnalytics](https://github.com/AionAnalytics)
+- **GitHub**: https://github.com/AION-Analytics
 
 ---
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - **NRC Emotion Lexicon** - Emotion analysis dataset (NRC Canada)
 - **FAISS** (Meta) - Similarity search engine
@@ -145,4 +145,4 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 
 ---
 
-*Built with ❤️ for the Indian financial community*
+*Built for the Indian financial community*
