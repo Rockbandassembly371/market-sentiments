@@ -9,7 +9,7 @@
 
 | # | Package | Purpose | Status | Location |
 |---|---------|---------|--------|----------|
-| 1 | **aion-sentiment-in** | Training pipeline (FinBERT fine-tuning) | ✅ Model Trained (98.55% acc) | `aion-sentiment-in/` |
+| 1 | **aion-sentiment-in** | Training pipeline (Transformer fine-tuning) | ✅ Model Trained (98.55% acc) | `aion-sentiment-in/` |
 | 2 | **aion-sentiment** | Inference API (sentiment + emotions) | ✅ Working (14K NRC lexicon) | `aion-sentiment/` |
 | 3 | **aion-sectormap** | Ticker → Sector/Industry mapping | ✅ 592 tickers mapped | `aion-sectormap/` |
 | 4 | **aion-volweight** | VIX-based confidence adjustment | ✅ Tested | `aion-volweight/` |
@@ -21,12 +21,12 @@
 
 ### 1. aion-sentiment-in (Training Pipeline)
 
-**Purpose:** Fine-tune FinBERT on Indian financial news sentiment data
+**Purpose:** Fine-tune Transformer on Indian financial news sentiment data
 
 **Key Features:**
 - ClickHouse data extraction (`extract_data.sql`)
 - Data preparation with 80/20 train/val split
-- FinBERT fine-tuning with MPS (Apple Silicon) support
+- Transformer fine-tuning with MPS (Apple Silicon) support
 - Model accuracy: **98.55%**, F1: **98.65%**
 
 **Files:**
@@ -44,7 +44,7 @@
 **Purpose:** Sentiment + Emotion analysis for financial headlines
 
 **Key Features:**
-- FinBERT-based sentiment classification
+- Transformer-based sentiment classification
 - NRC Emotion Lexicon (14,182 words bundled)
 - Emotions: fear, greed, panic, optimism
 - DataFrame API: `analyze(df, text_column)`

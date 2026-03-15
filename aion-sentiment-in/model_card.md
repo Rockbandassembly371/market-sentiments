@@ -12,10 +12,10 @@
 |-----------|-------------|
 | **Model Name** | AION-Sentiment-IN |
 | **Model Type** | Fine-tuned Transformer (Sequence Classification) |
-| **Base Model** | [ProsusAI/finbert](https://huggingface.co/ProsusAI/finbert) |
+| **Base Model** | [transformer-base](https://huggingface.co/transformer-base) |
 | **Fallback Model** | [distilbert-base-uncased](https://huggingface.co/distilbert-base-uncased) |
 | **Architecture** | BERT-based Transformer |
-| **Parameters** | ~110M (FinBERT base) |
+| **Parameters** | ~110M (Transformer base) |
 | **Input** | Text (financial news headlines) |
 | **Output** | Sentiment classification (negative, neutral, positive) |
 | **Framework** | PyTorch, HuggingFace Transformers |
@@ -23,7 +23,7 @@
 
 ### Model Description
 
-AION-Sentiment-IN is a fine-tuned sentiment analysis model specifically designed for **Indian financial news**. Built upon the FinBERT architecture, this model has been adapted to understand the nuances of Indian market sentiment, including references to Indian companies, regulatory bodies, and market-specific terminology.
+AION-Sentiment-IN is a tuned sentiment analysis model specifically designed for **Indian financial news**. Built upon the Transformer architecture, this model has been adapted to understand the nuances of Indian market sentiment, including references to Indian companies, regulatory bodies, and market-specific terminology.
 
 The model classifies financial news headlines into three sentiment categories:
 - **Negative (0)**: Bearish sentiment, negative outlook, or adverse developments
@@ -137,7 +137,7 @@ Actual  Neg      [XX] [XX] [XX]
 
 | Model | Accuracy | F1 Score |
 |-------|----------|----------|
-| **AION-Sentiment-IN (FinBERT)** | `XX.XX%` | `0.XX` |
+| **AION-Sentiment-IN (Transformer)** | `XX.XX%` | `0.XX` |
 | Baseline (DistilBERT) | `XX.XX%` | `0.XX` |
 | Random Baseline | 33.33% | 0.33 |
 
@@ -271,11 +271,11 @@ If you use AION-Sentiment-IN in your research, please cite:
 
 ### Base Model Citation
 
-This model is built upon FinBERT. Please also cite:
+This model is built upon Transformer. Please also cite:
 
 ```bibtex
 @article{yang2020finbert,
-  title = {FinBERT: Financial Sentiment Analysis with Pre-trained Language Models},
+  title = {Transformer: Financial Sentiment Analysis with Pre-trained Language Models},
   author = {Yang, Yi and Uy, Mark Christopher and Huang, Allen},
   journal = {arXiv preprint arXiv:2006.08097},
   year = {2020}

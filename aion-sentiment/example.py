@@ -337,7 +337,7 @@ def main() -> None:
     print(" " * 25 + "Usage Examples")
     print("=" * 70)
     
-    print("\n⚠️  Note: First run will download models (~400MB for FinBERT)")
+    print("\n⚠️  Note: First run will download models (~400MB for Transformer)")
     print("   Subsequent runs will use cached models.\n")
     
     try:

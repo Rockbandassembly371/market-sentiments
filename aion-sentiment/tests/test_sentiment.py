@@ -18,12 +18,12 @@
 # AION Open Source Project - Financial News Sentiment Analysis
 # =============================================================================
 """
-Tests for the SentimentAnalyzer class using real FinBERT model.
+Tests for the SentimentAnalyzer class using real Transformer model.
 
-These tests use the actual FinBERT model from HuggingFace to ensure
+These tests use the actual Transformer model from HuggingFace to ensure
 the sentiment analyzer works correctly with real financial text.
 
-Note: First test run will download the FinBERT model (~400MB).
+Note: First test run will download the Transformer model (~400MB).
 Subsequent runs will use the cached model.
 """
 
@@ -39,19 +39,19 @@ from aion_sentiment.sentiment import SentimentAnalyzer
 
 
 class TestSentimentAnalyzer(unittest.TestCase):
-    """Test cases for SentimentAnalyzer with real FinBERT model."""
+    """Test cases for SentimentAnalyzer with real Transformer model."""
     
     @classmethod
     def setUpClass(cls) -> None:
-        """Initialize the sentiment analyzer with FinBERT model."""
+        """Initialize the sentiment analyzer with Transformer model."""
         print("\n" + "=" * 70)
-        print("Initializing SentimentAnalyzer with FinBERT model...")
+        print("Initializing SentimentAnalyzer with Transformer model...")
         print("Note: First run will download the model (~400MB)")
         print("=" * 70)
         
         # Use CPU for tests to ensure consistency across environments
         cls.analyzer = SentimentAnalyzer(
-            model_name="ProsusAI/finbert",
+            model_name="transformer-base",
             device='cpu'
         )
         
@@ -356,7 +356,7 @@ class TestSentimentAnalyzer(unittest.TestCase):
         print(f"Analyzer repr: {repr_str}")
         
         self.assertIn('SentimentAnalyzer', repr_str)
-        self.assertIn('ProsusAI/finbert', repr_str)
+        self.assertIn('transformer-base', repr_str)
 
 
 class TestRealWorldHeadlines(unittest.TestCase):

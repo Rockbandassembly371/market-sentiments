@@ -75,7 +75,7 @@ logger = logging.getLogger(__name__)
 # CONSTANTS
 # =============================================================================
 
-DEFAULT_MODEL_NAME: str = "ProsusAI/finbert"
+DEFAULT_MODEL_NAME: str = "transformer-base"
 FALLBACK_MODEL_NAME: str = "distilbert-base-uncased"
 NUM_LABELS: int = 3
 MAX_LENGTH: int = 128
@@ -171,7 +171,7 @@ class SentimentTrainer:
         >>> trainer = SentimentTrainer(
         ...     data_dir="data",
         ...     output_dir="models/my-model",
-        ...     model_name="ProsusAI/finbert"
+        ...     model_name="transformer-base"
         ... )
         >>> results = trainer.train(num_epochs=3, batch_size=16)
         >>> print(f"Final F1: {results['f1']:.4f}")

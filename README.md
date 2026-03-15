@@ -91,7 +91,7 @@ Average 1-day Impact: -3.07%
          ↓
 ┌─────────────────┐
 │ Sentiment Engine│
-│  • FinBERT      │
+│  • Transformer  │
 │  • NRC Emotions │
 │  • 98.55% Acc   │
 └────────┬────────┘

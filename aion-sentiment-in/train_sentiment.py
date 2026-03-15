@@ -2,7 +2,7 @@
 # =============================================================================
 # AION Open-Source Project: Sentiment Analysis Training Pipeline
 # File: train_sentiment.py
-# Description: Training script for AION-Sentiment-IN model using FinBERT
+# Description: Training script for AION-Sentiment-IN model using Transformer
 # License: Apache License, Version 2.0
 #
 # Copyright 2026 AION Contributors
@@ -26,11 +26,11 @@
 AION Sentiment Analysis Training Script.
 
 This module provides a complete training pipeline for fine-tuning sentiment
-analysis models on Indian financial news data. It supports FinBERT as the
+analysis models on Indian financial news data. It supports Transformer as the
 primary model with DistilBERT as a fallback option.
 
 Key Features:
-    - Automatic model selection (FinBERT preferred, DistilBERT fallback)
+    - Automatic model selection (Transformer preferred, DistilBERT fallback)
     - Data loading from CSV files with headline and label columns
     - Tokenization and preprocessing using HuggingFace transformers
     - Training with evaluation metrics after each epoch
@@ -76,7 +76,7 @@ from transformers.trainer_callback import TrainerControl, TrainerState, TrainerC
 # CONSTANTS AND CONFIGURATION
 # =============================================================================
 
-DEFAULT_MODEL_NAME: str = "ProsusAI/finbert"
+DEFAULT_MODEL_NAME: str = "transformer-base"
 FALLBACK_MODEL_NAME: str = "distilbert-base-uncased"
 NUM_LABELS: int = 3  # negative, neutral, positive
 MAX_LENGTH: int = 128
@@ -213,7 +213,7 @@ def tokenize_dataset(
         Tokenized Dataset with input_ids, attention_mask, and labels.
 
     Example:
-        >>> tokenizer = AutoTokenizer.from_pretrained("ProsusAI/finbert")
+        >>> tokenizer = AutoTokenizer.from_pretrained("transformer-base")
         >>> tokenized = tokenize_dataset(train_dataset, tokenizer)
         >>> print(tokenized[0]["input_ids"][:10])
 
@@ -263,7 +263,7 @@ def load_model_and_tokenizer(
         RuntimeError: If both primary and fallback models fail to load.
 
     Example:
-        >>> model, tokenizer = load_model_and_tokenizer("ProsusAI/finbert")
+        >>> model, tokenizer = load_model_and_tokenizer("transformer-base")
         >>> print(f"Model config: {model.config}")
 
     """
