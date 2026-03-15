@@ -62,7 +62,7 @@ URL = "https://github.com/aion-open-source/aion-sentiment"
 LICENSE = "Apache-2.0"
 KEYWORDS = [
     "sentiment-analysis",
-    "finbert",
+    "aion-transformer",
     "financial-nlp",
     "emotion-detection",
     "nlp",
