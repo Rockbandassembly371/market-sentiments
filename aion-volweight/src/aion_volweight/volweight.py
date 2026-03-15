@@ -20,7 +20,7 @@ based on market volatility regimes using the VIX (Volatility Index).
 VIX Regime Classification:
     - LOW: VIX < 12 (Market complacency, full confidence)
     - NORMAL: 12 <= VIX < 15 (Typical market conditions, full confidence)
-    - HIGH: 15 <= VIX < 25 (Elevated volatility, 20% confidence discount)
+    - HIGH: 16 <= VIX < 25 (Elevated volatility, 20% confidence discount)
     - PANIC: VIX >= 25 (Market stress, 50% confidence discount)
 
 Example:
@@ -53,7 +53,7 @@ class VIXRegime(str, Enum):
     Attributes:
         LOW: VIX < 12 - Market complacency, low volatility
         NORMAL: 12 <= VIX < 15 - Typical market conditions
-        HIGH: 15 <= VIX < 25 - Elevated volatility, increased uncertainty
+        HIGH: 16 <= VIX < 25 - Elevated volatility, increased uncertainty
         PANIC: VIX >= 25 - Market stress, high volatility
     """
 
@@ -398,7 +398,7 @@ def get_regime_summary(vix_value: float) -> str:
 
     Example:
         >>> print(get_regime_summary(18.5))
-        VIX Regime: HIGH (15.0 <= VIX < 25.0)
+        VIX Regime: HIGH (16.0 <= VIX < 25.0)
         Confidence Multiplier: 0.8 (20% discount)
         Interpretation: Elevated volatility - reduce confidence by 20%
     """
@@ -416,7 +416,7 @@ def get_regime_summary(vix_value: float) -> str:
     regime_ranges = {
         VIXRegime.LOW: "VIX < 12.0",
         VIXRegime.NORMAL: "12.0 <= VIX < 15.0",
-        VIXRegime.HIGH: "15.0 <= VIX < 25.0",
+        VIXRegime.HIGH: "16.0 <= VIX < 25.0",
         VIXRegime.PANIC: "VIX >= 25.0",
     }
 

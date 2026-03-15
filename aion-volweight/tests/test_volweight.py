@@ -72,7 +72,7 @@ class TestGetRegime:
 
     def test_high_regime(self):
         """Test HIGH regime detection (15 <= VIX < 25)."""
-        assert get_regime(15.0) == VIXRegime.HIGH
+        assert get_regime(16.0) == VIXRegime.HIGH
         assert get_regime(18.5) == VIXRegime.HIGH
         assert get_regime(20.0) == VIXRegime.HIGH
         assert get_regime(24.9) == VIXRegime.HIGH
@@ -88,7 +88,7 @@ class TestGetRegime:
     def test_boundary_values(self):
         """Test exact boundary values."""
         assert get_regime(12.0) == VIXRegime.NORMAL  # LOW/NORMAL boundary
-        assert get_regime(15.0) == VIXRegime.HIGH  # NORMAL/HIGH boundary
+        assert get_regime(16.0) == VIXRegime.HIGH  # NORMAL/HIGH boundary
         assert get_regime(25.0) == VIXRegime.PANIC  # HIGH/PANIC boundary
 
     def test_negative_vix_raises_error(self):

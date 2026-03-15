@@ -67,7 +67,7 @@ def main():
     print("-" * 70)
     print("  <12     | LOW     | 1.0x (100%)           | Full size")
     print("  12-15   | NORMAL  | 1.0x (100%)           | Full size")
-    print("  15-25   | HIGH    | 0.8x (80%)            | Reduce 20%")
+    print("  16-25   | HIGH    | 0.8x (80%)            | Reduce 20%")
     print("  ≥25     | PANIC   | 0.5x (50%)            | Reduce 50%")
     
     print("\n" + "=" * 70)

@@ -106,7 +106,8 @@ Average 1-day Impact: -3.07%
 ┌─────────────────┐
 │ VIX Adjustment  │
 │  • LOW <12      │
-│  • HIGH 15-25   │
+│  • NORMAL 12-15 │
+│  • HIGH 16-25   │
 │  • PANIC ≥25    │
 └────────┬────────┘
          ↓
