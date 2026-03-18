@@ -10,9 +10,9 @@ Thank you for your interest in contributing! This project is designed for the In
 
 ## Why Contribute?
 
-- 🇮🇳 **Built for Indian Markets** - NSE/BSE focused sentiment analysis
-- ⚡ **Low-Latency Design** - Optimized for intraday trading (<100ms inference)
-- 📊 **Production-Ready** - 98.55% accuracy on real financial news
+-  **Built for Indian Markets** - NSE/BSE focused sentiment analysis
+-  **Low-Latency Design** - Optimized for intraday trading (<100ms inference)
+-  **Production-Ready** - 98.55% accuracy on real financial news
 - 🤝 **Community-Driven** - Open collaboration for better market intelligence
 
 ## How to Contribute

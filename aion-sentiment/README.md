@@ -20,11 +20,11 @@ Part of the [AION Open Source Ecosystem](https://github.com/aion-open-source)
 
 ### Key Features
 
-- 🎯 **India-Tuned Model**: Default model (`aion-analytics/aion-sentiment-in-v1`) tuned on Indian financial news with 98.55% accuracy
-- 📊 **Emotion Detection**: NRC Emotion Lexicon integration for detecting fear, greed, panic, and optimism
+-  **India-Tuned Model**: Default model (`aion-analytics/aion-sentiment-in-v1`) tuned on Indian financial news with 98.55% accuracy
+-  **Emotion Detection**: NRC Emotion Lexicon integration for detecting fear, greed, panic, and optimism
 - 🔄 **Flexible Model Selection**: Use any HuggingFace model via simple parameter
-- 🚀 **Hardware Acceleration**: Automatic detection and utilization of MPS (Apple Silicon), CUDA (NVIDIA), or CPU
-- 📈 **DataFrame Integration**: Seamless pandas DataFrame analysis for batch processing
+-  **Hardware Acceleration**: Automatic detection and utilization of MPS (Apple Silicon), CUDA (NVIDIA), or CPU
+-  **DataFrame Integration**: Seamless pandas DataFrame analysis for batch processing
 - 🔧 **Production Ready**: Type hints, comprehensive error handling, and extensive test coverage
 
 ### Model Information

@@ -1,4 +1,6 @@
-# Market Sentiments
+# AION Market Sentiment
+
+**Developer toolkit for financial sentiment analysis**
 
 AI-powered sentiment intelligence for Indian financial markets.
 
@@ -6,19 +8,32 @@ AI-powered sentiment intelligence for Indian financial markets.
 
 ---
 
-## What It Does
+## What This Is
 
-Extracts and aggregates:
-- 📰 **News Sentiment** - Real-time analysis of financial news headlines
-- 📊 **Sector Signals** - NSE sector-wise sentiment mapping (592 tickers)
-- 📈 **Volatility Adjustment** - VIX-based confidence scoring
-- 📉 **Historical Impact** - Similar news pattern matching with price impact
+A **developer toolkit** for building financial sentiment models:
 
-**Built for:**
-- 🇮🇳 Indian markets (NSE/BSE)
-- ⚡ Intraday trading (<100ms inference)
-- 📊 Quantitative strategies
-- 🤖 Algorithmic trading systems
+-  **Reusable Components** - Sentiment analysis, sector mapping, VIX adjustment
+-  **Experimentation** - Quick prototyping for quant research
+-  **Clean APIs** - Simple Python interfaces, no infra complexity
+-  **India-Focused** - NSE/BSE tickers, Indian financial news
+
+---
+
+## What This Is NOT
+
+This is **NOT** a production trading system. For production infrastructure (live ingestion, Redis streams, ClickHouse pipelines, execution engines), see our internal systems.
+
+**This toolkit is for:**
+-  ML engineers building sentiment models
+-  Quant researchers prototyping strategies
+-  Developers experimenting with financial NLP
+-  Students learning financial sentiment analysis
+
+**This toolkit is NOT for:**
+-  Direct production trading (use internal systems)
+-  Live tick data ingestion (use internal systems)
+-  Order execution (use internal systems)
+-  System governance/audit (use internal systems)
 
 ---
 

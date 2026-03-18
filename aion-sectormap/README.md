@@ -10,11 +10,11 @@ Part of the **AION** open-source ecosystem for financial data processing and ana
 
 ## Features
 
-- 📊 **Comprehensive Coverage**: 591+ NSE listed companies mapped to 44 sectors and 340+ business groups
+-  **Comprehensive Coverage**: 591+ NSE listed companies mapped to 44 sectors and 340+ business groups
 - 🔍 **Multiple Lookup Methods**: Forward (ticker → sector) and reverse (sector → tickers) lookups
-- 📈 **Pandas Integration**: Batch process DataFrames with sector/industry/group columns
-- 🎯 **Accurate Data**: Sourced from official NSE group companies data (updated January 2026)
-- ⚡ **Fast Lookups**: Optimized dictionary-based lookups for high-performance applications
+-  **Pandas Integration**: Batch process DataFrames with sector/industry/group columns
+-  **Accurate Data**: Sourced from official NSE group companies data (updated January 2026)
+-  **Fast Lookups**: Optimized dictionary-based lookups for high-performance applications
 - 🛡️ **Error Handling**: Graceful handling of unknown tickers with configurable defaults
 
 ## Installation

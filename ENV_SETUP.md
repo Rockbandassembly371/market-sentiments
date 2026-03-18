@@ -18,8 +18,8 @@
 2. Click "Generate new token (classic)"
 3. Give it a name (e.g., "AION Analytics")
 4. Select scopes:
-   - ✅ `repo` (Full control of private repositories)
-   - ✅ `workflow` (Update GitHub Action workflows)
+   -  `repo` (Full control of private repositories)
+   -  `workflow` (Update GitHub Action workflows)
 5. Click "Generate token"
 6. **Copy the token** (starts with `ghp_...`)
    - ⚠️ Save it securely - you can't see it again!
