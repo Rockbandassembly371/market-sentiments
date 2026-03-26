@@ -8,6 +8,35 @@
 
 **AION Sentiment Analysis** is an open-source Python package for analyzing sentiment and emotions in financial news text. Part of the [AION open-source ecosystem](https://github.com/aion), it provides pre-trained models and emotion analysis tools for financial NLP applications.
 
+---
+
+## ⚠️ DEVELOPER NOTICE - Model Under Retraining
+
+**Status:** The model is currently being retrained with corrected sentiment labels.
+
+**Issue:** A data labeling inconsistency was discovered in the original training data. The model is being retrained using VADER-corrected labels on our 957K Indian financial news corpus.
+
+**Expected Resolution:** A corrected v2 model will be released soon.
+
+---
+
+## What Makes AION-Sentiment-IN Different
+
+AION-Sentiment-IN is **NOT** just another FinBERT re-skin. The value additions beyond "Indian news context" are:
+
+| Feature | Description |
+|---------|-------------|
+| **India‑specific fine‑tuning** | Trained on proprietary Indian financial news corpus (not US FinBERT) |
+| **Sentiment labels** | Corrected via VADER lexicon (not relying on broken SHAM/UNIFIED_ROUTER labels) |
+| **Emotion mapping** | 8‑dimension emotion scores (anger, fear, joy, sadness, trust, disgust, surprise, anticipation) using NRC lexicon |
+| **Confidence bands** | Planned integration with India VIX regimes to weight sentiment confidence |
+| **Sector mapping** | Separate package (`aion-sectormap`) maps NSE/BSE tickers to sectors (already working) |
+| **News impact** | RAG pipeline linking headlines to historical price moves (future) |
+
+**Together, these make AION‑Sentiment‑IN unique** – it's not just a re‑labelled FinBERT.
+
+---
+
 ## Overview
 
 AION-Sentiment-IN provides:

@@ -57,6 +57,14 @@ import sys
 from pathlib import Path
 from typing import Any, Dict, Optional, Tuple
 
+# =============================================================================
+# MPS OPTIMIZATION FOR APPLE SILICON (M4)
+# =============================================================================
+# Set environment variables BEFORE importing torch/transformers for optimal MPS performance
+os.environ['PYTORCH_ENABLE_MPS_FALLBACK'] = '1'  # Enable CPU fallback for unsupported ops
+os.environ['PYTORCH_MPS_FAST_MATH'] = '1'  # Enable fast math for MPS kernels (faster, less precise)
+os.environ['PYTORCH_MPS_PREFER_METAL'] = '1'  # Use Metal kernels for matmul (critical for transformers)
+
 import evaluate
 import numpy as np
 import pandas as pd
@@ -550,7 +558,7 @@ def parse_arguments() -> argparse.Namespace:
     parser.add_argument(
         "--output_dir",
         type=str,
-        default="models/aion-sentiment-in-v1",
+        default="models/aion-sentiment-in-v2",
         help="Directory to save trained model",
     )
 

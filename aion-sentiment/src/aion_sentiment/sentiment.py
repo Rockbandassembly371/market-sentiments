@@ -67,15 +67,16 @@ class SentimentAnalyzer:
     """
     
     # Mapping from label IDs to human-readable labels
+    # Matches training data: negative=0, neutral=1, positive=2
     LABEL_MAP = {
-        0: 'positive',
+        0: 'negative',
         1: 'neutral',
-        2: 'negative'
+        2: 'positive'
     }
     
     def __init__(
         self,
-        model_name: str = "aion-analytics/aion-sentiment-in-v1",
+        model_name: str = "aion-analytics/aion-sentiment-in-v3",
         device: Optional[str] = None
     ) -> None:
         """
@@ -83,8 +84,9 @@ class SentimentAnalyzer:
 
         Args:
             model_name: HuggingFace model name or path to local model.
-                Defaults to "aion-analytics/aion-sentiment-in-v1" which is
-                tuned on Indian financial news (98.55% accuracy).
+                Defaults to "aion-analytics/aion-sentiment-in-v3" which is
+                tuned on Indian financial news with taxonomy-corrected labels
+                (99.63% accuracy, 2x improvement on problematic headlines).
                 Can be overridden with any HuggingFace model.
             device: Device to run inference on. Options:
                 - 'cuda': NVIDIA GPU with CUDA support
@@ -97,18 +99,18 @@ class SentimentAnalyzer:
             OSError: If model cannot be loaded from HuggingFace or local path.
 
         Example:
-            >>> # Auto-detect device, uses India-tuned model by default
+            >>> # Auto-detect device, uses India-tuned v3 model by default
             >>> analyzer = SentimentAnalyzer()
-            
+
             >>> # Use custom model
             >>> analyzer = SentimentAnalyzer(model_name="other-model")
-            
+
             >>> # Use custom local model
             >>> analyzer = SentimentAnalyzer(model_name="/path/to/model")
-            >>> 
+            >>>
             >>> # Force CPU usage
             >>> analyzer = SentimentAnalyzer(device='cpu')
-            >>> 
+            >>>
             >>> # Use specific model
             >>> analyzer = SentimentAnalyzer(model_name="cardiffnlp/twitter-roberta-base-sentiment")
         """

@@ -25,7 +25,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "aion-sentiment"
 dynamic = ["version"]
-description = "AION Financial News Sentiment Analysis with FinBERT and NRC Emotion Lexicon"
+description = "AION Financial News Sentiment Analysis with NRC Emotion Lexicon"
 readme = "README.md"
 license = {text = "Apache-2.0"}
 authors = [
@@ -36,7 +36,6 @@ maintainers = [
 ]
 keywords = [
     "sentiment-analysis",
-    "finbert",
     "financial-nlp",
     "emotion-detection",
     "nlp",
@@ -44,6 +43,7 @@ keywords = [
     "pytorch",
     "transformers",
     "aion",
+    "indian-markets",
 ]
 classifiers = [
     "Development Status :: 4 - Beta",

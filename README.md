@@ -4,25 +4,22 @@
 
 AI-powered sentiment intelligence for Indian financial markets.
 
-**98.55% accuracy** | **<100ms latency** | **592 NSE tickers** | **957K training samples**
+**99.63% accuracy** | **<100ms latency** | **592 NSE tickers** | **AION Taxonomy labels**
 
 ---
 
-## ⚠️ IMPORTANT NOTICE - Model Under Retraining
+## ✅ Model Status: Ready for Use
 
-**Status:** The HuggingFace model is currently **private** and under retraining.
+**Latest:** v3.0.0 trained on AION's proprietary taxonomy labeling system with 136 market events.
 
-**Issue:** A data labeling inconsistency was discovered in the training dataset. The model is being retrained with corrected labels.
+**What's Included:**
 
-**Expected Resolution:** A corrected model will be released soon.
-
-**What works:**
-- ✅ Sector mapping (aion-sectormap)
-- ✅ VIX adjustment (aion-volweight)
-- ✅ News impact analysis (aion-newsimpact)
-
-**What's temporarily unavailable:**
-- ⏳ Sentiment analysis model (being retrained)
+| Package | Description | Status |
+|---------|-------------|--------|
+| **aion-sentiment** | Sentiment analysis with AION taxonomy labels | ✅ Ready |
+| **aion-taxonomy** | Event classification with 136 market events | 🧪 Beta |
+| **aion-sectormap** | NSE ticker → sector mapping (592 tickers) | ✅ Ready |
+| **aion-volweight** | VIX-adjusted confidence weighting | ✅ Ready |
 
 ---
 
@@ -59,19 +56,40 @@ This is **NOT** a production trading system. For production infrastructure (live
 
 ```bash
 # Install
-pip install aion-sentiment aion-sectormap aion-volweight
+pip install aion-sentiment aion-sectormap aion-volweight aion-taxonomy
+```
 
-# Run
-python -c "
-from aion_sentiment import AIONSentimentAnalyzer
-analyzer = AIONSentimentAnalyzer()
-print(analyzer.predict(['Market reaches all-time high']))
-"
+### Sentiment Analysis
+
+```python
+from aion_sentiment import SentimentAnalyzer
+
+analyzer = SentimentAnalyzer()
+result = analyzer.predict("RBI hikes repo rate")
+print(result)
+# {'label': 'negative', 'confidence': 0.89}
+```
+
+### Taxonomy Event Classification (Beta)
+
+```python
+from aion_taxonomy import TaxonomyPipeline
+
+pipeline = TaxonomyPipeline("taxonomy_india_v2.yaml")
+result = pipeline.process("RBI hikes repo rate", ticker="HDFCBANK")
+
+print(f"Event: {result['event']['event_id']}")
+print(f"Macro Signal: {result['macro_signal']:+.3f}")
+print(f"Sector Signal (Banks): {result['active_sector_signal']:+.3f}")
+print(f"Confidence: {result['confidence']:.1%}")
 ```
 
 **Output:**
 ```
-[{'label': 'positive', 'confidence': 0.9389}]
+Event: macro_rbi_repo_hike
+Macro Signal: -0.495
+Sector Signal (Banks): +0.569
+Confidence: 54.7%
 ```
 
 ---
@@ -464,6 +482,47 @@ pytest
 | VIX adjustment | <5ms | 50,000/sec |
 
 **Tested on:** Apple M4 Mac, 16GB RAM
+
+---
+
+## Contributing
+
+We welcome contributions! Here's how you can help:
+
+### Improve Taxonomy Coverage
+
+The taxonomy currently matches **~6.6%** of headlines. Help us improve coverage by adding keywords for uncovered events.
+
+**No-match events needing keywords:**
+
+```bash
+# View the list of 112 events without matches
+cat aion_taxonomy/no_match_events.txt
+```
+
+**Priority categories:**
+- RBI monetary policy (repo, CRR, SLR changes)
+- Corporate actions (CEO/CFO exits, guidance changes)
+- Global events (Fed decisions, China growth)
+- Sector-specific events (auto sales, bank NPA, IT deals)
+
+**How to contribute:**
+
+1. Pick an event from `no_match_events.txt`
+2. Add 3-5 common headline variations as keywords
+3. Submit a PR with the updated taxonomy YAML
+
+### Add New Sectors or Events
+
+- Submit new sector definitions with ticker mappings
+- Add new event categories with base impacts and sector multipliers
+- Provide sample headlines for validation
+
+### Report Issues
+
+- Bug reports: Use GitHub Issues
+- Model feedback: Share misclassified examples
+- Feature requests: Suggest new capabilities
 
 ---
 

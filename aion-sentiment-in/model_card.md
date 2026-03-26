@@ -269,19 +269,6 @@ If you use AION-Sentiment-IN in your research, please cite:
 }
 ```
 
-### Base Model Citation
-
-This model is built upon Transformer. Please also cite:
-
-```bibtex
-@article{yang2020finbert,
-  title = {Transformer: Financial Sentiment Analysis with Pre-trained Language Models},
-  author = {Yang, Yi and Uy, Mark Christopher and Huang, Allen},
-  journal = {arXiv preprint arXiv:2006.08097},
-  year = {2020}
-}
-```
-
 ### NRC Emotion Lexicon
 
 If using the emotion analysis utilities, please cite:

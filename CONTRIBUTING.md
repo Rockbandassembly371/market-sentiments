@@ -1,150 +1,216 @@
 # Contributing to AION Market Sentiment
 
-Thank you for your interest in contributing! This project is designed for the Indian financial community.
-
-## Quick Links
-
-- [Good First Issues](https://github.com/AION-Analytics/market-sentiments/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
-- [Help Wanted](https://github.com/AION-Analytics/market-sentiments/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22)
-- [Feature Requests](https://github.com/AION-Analytics/market-sentiments/issues?q=is%3Aissue+is%3Aopen+label%3A%22enhancement%22)
-
-## Why Contribute?
-
--  **Built for Indian Markets** - NSE/BSE focused sentiment analysis
--  **Low-Latency Design** - Optimized for intraday trading (<100ms inference)
--  **Production-Ready** - 98.55% accuracy on real financial news
-- 🤝 **Community-Driven** - Open collaboration for better market intelligence
-
-## How to Contribute
-
-### 1. Report Bugs
-
-Use the [bug report template](https://github.com/AION-Analytics/market-sentiments/issues/new?template=bug_report.md)
-
-Include:
-- Python version
-- OS details
-- Steps to reproduce
-- Expected vs actual behavior
-
-### 2. Suggest Features
-
-Use the [feature request template](https://github.com/AION-Analytics/market-sentiments/issues/new?template=feature_request.md)
-
-Include:
-- Use case description
-- Expected behavior
-- Example code (if applicable)
-
-### 3. Submit Code
-
-```bash
-# Fork the repo
-git fork https://github.com/AION-Analytics/market-sentiments
-
-# Clone your fork
-git clone https://github.com/YOUR_USERNAME/market-sentiments
-
-# Create branch
-git checkout -b feature/your-feature-name
-
-# Make changes
-# Add tests
-# Run tests: pytest
-
-# Commit
-git commit -m "feat: Add your feature description"
-
-# Push
-git push origin feature/your-feature-name
-
-# Open Pull Request
-```
-
-### 4. Improve Documentation
-
-- Fix typos
-- Add examples
-- Improve README sections
-- Add tutorials
-
-### 5. Add Data Sources
-
-Help us support more Indian news sources:
-- Regional language news (Hindi, Tamil, etc.)
-- Social media sentiment (Twitter, StockTwits)
-- Options flow data
-- FII/DII flow data
-
-## Good First Issues
-
-Look for issues labeled:
-- `good first issue` - Perfect for beginners
-- `help wanted` - Need community help
-- `documentation` - Improve docs
-- `tests` - Add test coverage
-
-## Development Setup
-
-```bash
-# Clone repo
-git clone https://github.com/AION-Analytics/market-sentiments
-cd market-sentiments
-
-# Create virtual environment
-python3 -m venv venv
-source venv/bin/activate
-
-# Install dev dependencies
-pip install -e ".[dev]"
-
-# Run tests
-pytest tests/ -v
-
-# Run linting
-black .
-flake8
-```
-
-## Code Style
-
-- **Formatting:** Black
-- **Linting:** Flake8
-- **Type Hints:** Required for all public APIs
-- **Docstrings:** Google style
-
-## Testing
-
-```bash
-# Run all tests
-pytest
-
-# Run with coverage
-pytest --cov=aion_sentiment --cov-report=html
-
-# Run specific test
-pytest tests/test_sentiment.py -v
-```
-
-## Release Process
-
-1. Bump version in `setup.py`
-2. Update `CHANGELOG.md`
-3. Create PR
-4. Maintainer reviews
-5. Tag release
-6. Publish to PyPI
-
-## Questions?
-
-- **Discord:** [Join our server](https://discord.gg/aion-analytics)
-- **Email:** aionlabs@tutamail.com
-- **Discussions:** [GitHub Discussions](https://github.com/AION-Analytics/market-sentiments/discussions)
-
-## License
-
-Apache License 2.0 - See [LICENSE](LICENSE) for details.
+Thank you for your interest in contributing! This guide focuses on high-impact areas where community contributions are most valuable.
 
 ---
 
-*Thank you for contributing to open-source financial tools for India!*
+## Where You Can Help
+
+### 1. Improve Taxonomy Keywords (Highest Priority)
+
+The taxonomy currently matches **~6.6%** of headlines. We need help adding keywords for **112 uncovered events**.
+
+#### Get Started
+
+```bash
+# View the list of events without matches
+cat aion_taxonomy/no_match_events.txt
+
+# Pick an event category to work on
+```
+
+#### Priority Categories
+
+- **RBI Monetary Policy:** repo rate, CRR, SLR, OMO operations
+- **Corporate Actions:** CEO/CFO exits, board changes, restructuring
+- **Global Events:** Fed decisions, China growth, oil price shocks
+- **Sector Events:** Auto sales, bank NPA, IT deal wins, pharma approvals
+- **Government Schemes:** PLI, FAME, PM-KISAN, Mudra, Digital India
+
+#### How to Contribute Keywords
+
+1. **Pick an event** from `no_match_events.txt`
+
+2. **Research headline patterns** - Think about how Indian financial news writes about this topic
+
+3. **Add 3-5 keywords** per event in `aion_taxonomy/taxonomy_india_v2_calibrated.yaml`:
+
+```yaml
+- id: macro_rbi_repo_hike
+  keywords:
+  - repo rate hike          # existing
+  - rbi hikes repo          # existing
+  - rbi raises rates        # your addition
+  - monetary policy tightens # your addition
+  - central bank hikes      # your addition
+```
+
+4. **Test your changes:**
+
+```bash
+cd aion-sentiment
+python3 backfill_taxonomy.py --limit 10000 --taxonomy-path ../aion_taxonomy/taxonomy_india_v2_calibrated.yaml --dry-run
+```
+
+5. **Compare match rates** before and after:
+
+```
+Before: 6.6% match rate
+After:  7.2% match rate (+0.6 pp improvement)
+```
+
+6. **Submit PR** with:
+   - Updated YAML file
+   - Before/after match rates
+   - List of keywords added
+
+---
+
+### 2. Add New Sectors or Events
+
+#### New Sectors
+
+If you identify sectors not covered in the current 32:
+
+```yaml
+# Add to sectors list in taxonomy YAML
+- id: Renewable Energy
+  beta_default: 1.3
+```
+
+#### New Events
+
+For new event types:
+
+```yaml
+- id: sector_renewable_policy_support
+  name: Renewable Energy Policy Support
+  seasonal_activation: false
+  keywords:
+  - renewable energy subsidy
+  - solar power incentive
+  - wind energy policy
+  base_impact:
+    mild: 0.15
+    normal: 0.35
+    severe: 0.55
+  default_impact: normal
+  market_weight: 0.7
+  sector_impacts:
+    Power:
+      multiplier: 1.2
+      bias: aligned
+      rationale: Policy support boosts sector
+```
+
+---
+
+### 3. Calibrate Event Impacts
+
+Help improve base_impact values using real data:
+
+```bash
+# Run backfill on full dataset
+python3 backfill_taxonomy.py --limit 200000 --taxonomy-path taxonomy_india_v2_calibrated.yaml
+
+# Run calibration script
+cd aion_taxonomy
+python3 calibrate_taxonomy.py --min-count 30
+```
+
+Review `calibration_summary.txt` for events needing base_impact adjustment.
+
+---
+
+### 4. Build Neural Event Classifier
+
+Current taxonomy is rule-based. Help us build a neural classifier:
+
+- Fine-tune a transformer on event classification
+- Integrate with existing pipeline
+- Compare accuracy vs. keyword matching
+
+---
+
+## Contribution Process
+
+### Step 1: Fork the Repo
+
+```bash
+git clone https://github.com/YOUR_USERNAME/market-sentiments.git
+cd market-sentiments
+```
+
+### Step 2: Create Branch
+
+```bash
+git checkout -b feature/taxonomy-keywords-rbi-policy
+```
+
+### Step 3: Make Changes
+
+Edit `aion_taxonomy/taxonomy_india_v2_calibrated.yaml` with your keyword additions.
+
+### Step 4: Test Changes
+
+```bash
+cd aion-sentiment
+python3 backfill_taxonomy.py --limit 10000 --taxonomy-path ../aion_taxonomy/taxonomy_india_v2_calibrated.yaml --dry-run
+```
+
+### Step 5: Document Results
+
+Create a simple summary:
+
+```markdown
+## Changes
+
+Event: macro_rbi_repo_hike
+Keywords Added: 5
+- rbi raises rates
+- monetary policy tightens
+- central bank hikes
+- repo rate raised
+- rbi rate decision
+
+## Results
+
+Before: 5.8% match rate (580/10000)
+After:  6.4% match rate (640/10000)
+Improvement: +0.6 pp
+```
+
+### Step 6: Submit PR
+
+```bash
+git add aion_taxonomy/taxonomy_india_v2_calibrated.yaml
+git commit -m "Add keywords for macro_rbi_repo_hike event"
+git push origin feature/taxonomy-keywords-rbi-policy
+```
+
+Open pull request with:
+- Description of changes
+- Before/after match rates
+- List of keywords added
+
+---
+
+## Code Style
+
+- **Python:** Follow PEP 8, use type hints
+- **YAML:** Consistent indentation (2 spaces), alphabetical where sensible
+- **Documentation:** Clear docstrings, examples in docstrings
+
+---
+
+## Questions?
+
+- **Bug Reports:** Use GitHub Issues
+- **Discussions:** GitHub Discussions tab
+- **Direct Contact:** contributors@aion.opensource
+
+---
+
+## Thank You!
+
+Your contributions help make AION Market Sentiment better for everyone. Every keyword added improves coverage for the entire community.
